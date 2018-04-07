@@ -64,7 +64,7 @@ bool check_collision(float Ax, float Ay, float Aw, float Ah, float Bx, float By,
 
 void reshape()		//Modify the co-ordinates according to the key-presses and collisions etc...
 {//done
-	if(block.myx<0)
+	if(block.myx<=0)
 	  block.myx=0;
 	if(block.myx+block.width>600)
 	  block.myx=550;
@@ -178,7 +178,7 @@ void draw()		//Render the objects on the screen using the latest updated co-ordi
 	gamedisplay(ball.ballx,ball.bally,ball.ballx+ball.ballwh,ball.bally,ball.ballx+ball.ballwh,ball.bally+ball.ballwh,ball.ballx,ball.bally+ball.ballwh);
 	glutPostRedisplay();
 	glutSwapBuffers();
-	if(totaldead==45)
+	if(score==45)
     {
         char _score[10];
         itoa(score,_score,10);
@@ -352,7 +352,7 @@ void callMenu()
 
 
 }
-void processmenu(int opt)
+/*void processmenu(int opt)
 {
 	switch(opt)
 	{
@@ -368,6 +368,7 @@ void processmenu(int opt)
 	}
 
 }
+*/
 void revert()
 {
 	ball.velx=10;
@@ -385,9 +386,9 @@ void revert()
 			ball.vely=ball.vely;
 		}
 	}
-	else if(ball.down=true)
+	else if(ball.down==true)
 	{
-		if(ball.right=true)
+		if(ball.right==true)
 		{
 			ball.velx=ball.velx;
 			ball.vely=-ball.vely;
